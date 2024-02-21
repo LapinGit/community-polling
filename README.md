@@ -1,1 +1,1 @@
-"# community-polling-" 
+"# community-polling" 
