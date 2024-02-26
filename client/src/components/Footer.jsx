@@ -48,7 +48,7 @@ export default function FooterCom() {
           </div>
         </div>
       <div className="h-[100px] flex justify-center items-center mt-auto ">
-        <p className="text-black">Alfonso Aurel Lapinoria | {new Date().getFullYear()}</p>
+        <p className="text-black-100">Alfonso Aurel Lapinoria | {new Date().getFullYear()}</p>
         </div>
     </Footer>
   );
