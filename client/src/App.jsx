@@ -6,6 +6,7 @@ import SignUp from "./Pages/SignUp";
 import DashBoard from "./Pages/DashBoard";
 import Header from "./components/Header";
 import Polls from "./Pages/Polls";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/polls" element={<Polls />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

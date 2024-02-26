@@ -16,7 +16,11 @@ export default function Header() {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
-        <span className="text-white px-2 py-1 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg">
+        <span
+          className="text-white px-2 py-1 bg-gradient-to-r from-blue-500 via-blue-600
+         to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none 
+         focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg"
+        >
           Community Polling
         </span>
       </Link>
@@ -25,7 +29,9 @@ export default function Header() {
           <FaMoon />
         </Button>
         <Link to="/sign-in">
-          <Button gradientDuoTone="greenToBlue" outline>Sign In</Button>
+          <Button gradientDuoTone="greenToBlue" outline>
+            Sign In
+          </Button>
         </Link>
         <NavbarToggle />
       </div>
