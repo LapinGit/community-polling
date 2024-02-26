@@ -7,6 +7,7 @@ import DashBoard from "./Pages/DashBoard";
 import Header from "./components/Header";
 import Polls from "./Pages/Polls";
 import Footer from "./components/Footer";
+import PrivateRoute from "./components/PrivateRoute";
 
 export default function App() {
   return (
@@ -17,10 +18,13 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/polls" element={<Polls />} />
+        <Route element={<PrivateRoute />}>
+          <Route path='/dashboard' element={<DashBoard />} />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>
   );
 }
+ 
