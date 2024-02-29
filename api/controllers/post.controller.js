@@ -5,7 +5,6 @@ export const create = async (req, res, next) => {
   if (!req.body.title || !req.body.content) {
     return next(errorHandler(400, "Please provide all required fields"));
   }
-
   const slug = req.body.title
     .split(" ")
     .join("-")
@@ -31,7 +30,6 @@ export const getposts = async (req, res, next) => {
     const sortDirection = req.query.order === 'asc' ? 1 : -1;
     const posts = await Post.find({
       ...(req.query.userId && { userId: req.query.userId }),
-      ...(req.query.category && { category: req.query.category }),
       ...(req.query.slug && { slug: req.query.slug }),
       ...(req.query.postId && { _id: req.query.postId }),
     })
@@ -86,7 +84,6 @@ export const updatepost = async (req, res, next) => {
         $set: {
           title: req.body.title,
           content: req.body.content,
-          category: req.body.category,
           image: req.body.image,
         },
       },
