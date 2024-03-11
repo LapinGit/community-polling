@@ -4,13 +4,15 @@ import {
   createVote,
   getPostVotes,
   getVotes,
-  voteBox,
+  voteA,
+  voteB,
 } from "../controllers/vote.contoller.js";
 
 const router = express.Router();
 router.post("/create", verifyToken, createVote);
 router.get("/getPostVotes/:postId", getPostVotes);
-router.put("/voteBox/:voteId", verifyToken, voteBox);
+router.put("/voteA/:voteId", verifyToken, voteA);
+router.put("/voteB/:voteId", verifyToken, voteB);
 router.get("/getVotes", verifyToken, getVotes);
 
 export default router;

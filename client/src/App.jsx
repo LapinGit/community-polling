@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import SignIn from "./Pages/SignIn";
-import SignUp from "./Pages/SignUp";
-import DashBoard from "./Pages/DashBoard";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import DashBoard from "./pages/DashBoard";
 import Header from "./components/Header";
-import Polls from "./Pages/Polls";
+import Polls from "./pages/Polls";
 import Footer from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
-import CreatePolls from "./Pages/CreatePolls";
+import CreatePolls from "./pages/CreatePolls";
+import PostPoll from "./pages/PostPoll";
 
 export default function App() {
   return (
@@ -24,6 +25,8 @@ export default function App() {
         <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<DashBoard />} />
         </Route>
+        <Route path='/post/:postSlug' element={<PostPoll />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
