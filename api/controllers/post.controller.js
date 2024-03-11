@@ -20,16 +20,15 @@ export const create = async (req, res, next) => {
     res.status(201).json(savedPost);
   } catch (error) {
     next(error);
-  }};
+  }
+};
 
-  
 export const getposts = async (req, res, next) => {
   try {
     const startIndex = parseInt(req.query.startIndex) || 0;
     const limit = parseInt(req.query.limit) || 9;
-    const sortDirection = req.query.order === 'asc' ? 1 : -1;
+    const sortDirection = req.query.order === "asc" ? 1 : -1;
     const posts = await Post.find({
-      ...(req.query.userId && { userId: req.query.userId }),
       ...(req.query.slug && { slug: req.query.slug }),
       ...(req.query.postId && { _id: req.query.postId }),
     })
@@ -67,7 +66,7 @@ export const deletepost = async (req, res, next) => {
   }
   try {
     await Post.findByIdAndDelete(req.params.postId);
-    res.status(200).json('The post has been deleted');
+    res.status(200).json("The post has been deleted");
   } catch (error) {
     next(error);
   }
@@ -94,4 +93,3 @@ export const updatepost = async (req, res, next) => {
     next(error);
   }
 };
-

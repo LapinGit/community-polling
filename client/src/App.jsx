@@ -22,10 +22,11 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/polls" element={<Polls />} />
         <Route path="/create-poll" element={<CreatePolls/>} />
+        <Route path='/post/:postSlug' element={<PostPoll />} />
+        
         <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<DashBoard />} />
         </Route>
-        <Route path='/post/:postSlug' element={<PostPoll />} />
 
       </Routes>
       <Footer />
