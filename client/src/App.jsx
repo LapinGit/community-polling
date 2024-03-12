@@ -10,10 +10,12 @@ import Footer from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
 import CreatePolls from "./pages/CreatePolls";
 import PostPoll from "./pages/PostPoll";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,16 +23,14 @@ export default function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/polls" element={<Polls />} />
-        <Route path="/create-poll" element={<CreatePolls/>} />
-        <Route path='/post/:postSlug' element={<PostPoll />} />
-        
-        <Route element={<PrivateRoute />}>
-          <Route path='/dashboard' element={<DashBoard />} />
-        </Route>
+        <Route path="/create-poll" element={<CreatePolls />} />
+        <Route path="/post/:postSlug" element={<PostPoll />} />
 
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<DashBoard />} />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>
   );
 }
- 
