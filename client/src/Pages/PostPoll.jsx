@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CommentSection from "../components/CommentSection";
 import VoteSection from "../components/VoteSection";
+import PostCard from "../components/PostCard";
 
 export default function PostPoll() {
   const { postSlug } = useParams();
   const [loading, setLoading] = useState(true);
   const [, setError] = useState(false);
   const [post, setPost] = useState(null);
+  const [recentPolls, setRecentPolls] = useState(null);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -33,6 +35,21 @@ export default function PostPoll() {
     };
     fetchPost();
   }, [postSlug]);
+
+  useEffect(() => {
+    try {
+      const fetchRecentPolls = async () => {
+        const res = await fetch(`/api/post/getposts?limit=4`);
+        const data = await res.json();
+        if (res.ok) {
+          setRecentPolls(data.posts);
+        }
+      };
+      fetchRecentPolls();
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, []);
 
   if (loading)
     return (
@@ -93,6 +110,13 @@ export default function PostPoll() {
       </div>
       <VoteSection postId={post?._id} />
       <CommentSection postId={post?._id} />
+      <div className="flex flex-col justify-center items-center mb-5">
+        <h1 className="text-xl mt-5">Recent Polls</h1>
+        <div className="flex flex-wrap gap-5 mt-5 justify-center">
+          {recentPolls &&
+            recentPolls.map((post) => <PostCard key={post._id} post={post} />)}
+        </div>
+      </div>
     </main>
   );
 }
