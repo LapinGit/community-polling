@@ -75,10 +75,10 @@ export default function Home() {
               )}
             </div>
             <Link
-              to={"/search"}
+              to={"/polls"}
               className="text-lg text-teal-500 hover:underline text-center"
             >
-              View all posts
+              View all polls
             </Link>
           </div>
         )}
