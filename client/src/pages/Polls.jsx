@@ -71,7 +71,7 @@ export default function Polls() {
             </div>
           </div>
         ) : (
-          <p className="text-center text-red-500">You must be signed in to see all the posts.</p>
+          <p className="text-center text-red-500">You must be signed in to see all the polls.</p>
         )}
       </div>
     </div>
