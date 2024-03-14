@@ -6,6 +6,14 @@ import authRoutes from "./routes/auth.route.js";
 import postRoutes from "./routes/post.route.js";
 import voteRoutes from "./routes/vote.route.js";
 import commentRoutes from "./routes/comment.route.js";
+import path from "path";
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
 
 
 import cookieParser from "cookie-parser";
