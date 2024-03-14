@@ -42,6 +42,7 @@ export default function Home() {
         <Link
           to="/polls"
           className="text-xs sm:text-sm text-teal-500 font-bold hover:underline"
+          onClick={handleCreatePollClick}
         >
           View all polls
         </Link>
